@@ -64,16 +64,22 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
-  <h1>Record Update</h1>
+    <div class="container">
+      <div class="row">
+   
+  <h1 class="text-center mt-2">Record Update</h1>
 
-<form method='POST' enctype="multipart/form-data">
+<form method='POST' enctype="multipart/form-data" class="text-center">
     <p>Name:  <input type='text' name='name'  value='<?php echo $users[0]['username'];  ?>'></p>
     <p>Phone Number: <input type='text' name='number' value='<?php echo$users[0]['phonenumber']; ?>'></p>
     <p>Image: <input type='file' name='image'></p> 
     <p><input type='submit' value='Update'></p>
 </form>
 
-<p><a href='index.php'>Back To list</a></p>
+<p class="text-center"><a href='index.php'>Back To list</a></p>
+     
+</div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>

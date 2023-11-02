@@ -14,9 +14,10 @@ require 'db.php';
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
-    <h1 class="text-center mt-2">Mobile Phone List</h1>
+    <div class="container">
+    <h1 class="text-center mt-2 text-danger">Mobile Phone List</h1>
     
-    <table class="table table-striped">
+    <table class="table table-striped mt-2">
   <thead>
     <tr>
       <th scope="col">Id</th>
@@ -29,6 +30,7 @@ require 'db.php';
     </tr>
   </thead>
   <tbody>
+  </div>
     <?php
     $SORGU = $DB->prepare("SELECT * FROM users");
     $SORGU->execute();
