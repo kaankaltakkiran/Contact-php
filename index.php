@@ -14,7 +14,7 @@ require 'db.php';
     <div class="container">
     <h1 class="text-center mt-2 text-danger">Mobile Phone List</h1>
     
-    <table class="table table-striped mt-2">
+    <table class="table table-striped mt-2 cell-border">
   <thead>
     <tr>
       <th scope="col">Id</th>
