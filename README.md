@@ -1,6 +1,6 @@
 ﻿# Contact-php  
 ```sql
--- Adminer 4.8.1 MySQL 5.5.5-10.4.27-MariaDB dump
+--- Adminer 4.8.1 MySQL 5.5.5-10.4.27-MariaDB dump
 
 SET NAMES utf8;
 SET time_zone = '+00:00';
@@ -9,40 +9,29 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-DROP TABLE IF EXISTS `products`;
-CREATE TABLE `products` (
-  `productid` int(11) NOT NULL AUTO_INCREMENT,
-  `productname` varchar(255) NOT NULL,
-  `category` varchar(255) NOT NULL,
-  `stock` varchar(255) NOT NULL,
-  `price` varchar(255) NOT NULL,
-  `productdate` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `productdescription` text NOT NULL,
-  `productimg` varchar(255) NOT NULL,
-  PRIMARY KEY (`productid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
-
-INSERT INTO `products` (`productid`, `productname`, `category`, `stock`, `price`, `productdate`, `productdescription`, `productimg`) VALUES
-(1,	'Acer Laptop',	'',	'1.000',	'30.000',	'2023-11-05 10:36:58',	'Acer Laptop Description',	'IMG-6547704acbd209.04153442.jpg'),
-(2,	'Hp Laptop',	'',	'500',	'25.000',	'2023-11-05 10:37:11',	'Hp Laptop Description',	'IMG-65477057aa22c8.22335014.jpg'),
-(3,	'Monster Laptop',	'',	'917',	'17.000',	'2023-11-05 10:37:30',	'Monster Laptop Description',	'IMG-6547706aa1d080.91612054.jpg'),
-(4,	'New Laptop',	'',	'1.430',	'47.000',	'2023-11-08 07:05:50',	'New Laptop Description',	'IMG-654b334e976597.61598384.jpg');
-
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `userid` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
-  `useremail` varchar(50) NOT NULL,
-  `userpassword` varchar(255) NOT NULL,
-  `role` int(11) NOT NULL DEFAULT 1,
+  `phonenumber` varchar(11) NOT NULL,
+  `userimg` varchar(255) NOT NULL,
   PRIMARY KEY (`userid`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_turkish_ci;
 
-INSERT INTO `users` (`userid`, `username`, `useremail`, `userpassword`, `role`) VALUES
-(1,	'Ahmet Yılmaz',	'ahmet@gmail.com',	'$2y$10$SHJAe.TDg5jp4S/GJ9p1..N/K9Bcw9OvDwaEzyQKQm2aHtq5wcZ2.',	1),
-(2,	'Admin',	'admin@gmail.com',	'$2y$10$T.V40CsyhHOj/pT922VwrOcRBksyCzvHfeAJNf/oOgdJQQKXzU9WC',	2);
+INSERT INTO `users` (`userid`, `username`, `phonenumber`, `userimg`) VALUES
+(1,	'Kaan Kaltakkıran',	'05076600884',	'IMG-654b31b7bc1fe8.35011243.jpg'),
+(2,	'Veli Baba',	'05054235128',	'IMG-65439361884529.22739098.jpg'),
+(3,	'Ayşe Yılmaz',	'05075366147',	'IMG-6543938e4474a9.79692124.jpg'),
+(4,	'Selin Ak',	'05064357551',	'IMG-654393b6afb358.33856529.jpg'),
+(5,	'Ahmet Yılmaz',	'05064423812',	'IMG-6543b114b9fab7.28522222.jpg'),
+(6,	'Ali Ak',	'05057653227',	'IMG-6543b138dc2f88.75840205.jpg'),
+(7,	'Selin Türkmen',	'05078624651',	'IMG-6543b158036719.64438706.jpg'),
+(8,	'Adnan Soy',	'05045433597',	'IMG-6543b1831af8e3.47464387.jpg'),
+(9,	'Veli Okumuş',	'5047620354',	'IMG-6543b19bd9ae76.61928296.jpg'),
+(10,	'Zeynep Sever',	'05073146554',	'IMG-6543b1c7951f24.54371323.jpg'),
+(11,	'Fırat Akbaş',	'05057310547',	'IMG-6543b1e79f27e4.13099479.png');
 
--- 2023-11-08 09:35:13
+-- 2023-11-08 09:36:37
 ```
 ## Site Video
  https://github.com/kaankaltakkiran/php_video
