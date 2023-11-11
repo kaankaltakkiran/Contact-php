@@ -1,14 +1,8 @@
 <?php
 
     require_once('db.php');
-
     if(isset($_POST['name'])){
-        ///////////////////////////////////////
-        /////////////////////////////////////// GÜNCELLEME İŞLEMİ 
-        ///////////////////////////////////////
-        // echo "<pre>"; print_r($_POST);
-        // echo "<pre>"; print_r($_GET);
-
+     
         $name  = $_POST['name'];
         $number = $_POST['number'];
         $id    = $_GET['id'];
@@ -16,21 +10,27 @@
         $img_name = $_FILES['image']['name'];
         $img_size = $_FILES['image']['size'];
         $tmp_name = $_FILES['image']['tmp_name'];
-      /* 	$error = $_FILES['image']['error']; */
-      
+       	$error = $_FILES['image']['error'];
+
+        // Hata kontrolü
+         $errors = array();
         
+         if ($error === 0) {
+          if ($img_size > 125000) { 
+            $errors[] = "Sorry, your file is too large.";
+          }else {
             $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
             $img_ex_lc = strtolower($img_ex);
+            //! Resim türü kontrolü
+            $allowed_exs = array("jpg", "jpeg", "png");
       
-            $allowed_exs = array("jpg", "jpeg", "png"); 
-      
-            if (in_array($img_ex_lc, $allowed_exs)) 
+            if (in_array($img_ex_lc, $allowed_exs)) {
               $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
               $img_upload_path = 'images/'.$new_img_name;
               move_uploaded_file($tmp_name, $img_upload_path);
-
-        $sql = "UPDATE users SET username = :name, phonenumber = :number,userimg='$new_img_name' WHERE userid = :id";
-        $SORGU = $DB->prepare($sql);
+      
+              $sql = "UPDATE users SET username = :name, phonenumber = :number,userimg='$new_img_name' WHERE userid = :id";
+              $SORGU = $DB->prepare($sql);
 
         $SORGU->bindParam(':name',  $name);
         $SORGU->bindParam(':number', $number);
@@ -38,7 +38,21 @@
 
         // die(date("H:i:s"));
         $SORGU->execute();
-        echo "User updated";
+        echo '
+        <div class="container">
+    <div class="alert mt-3 text-center alert-info " role="alert">
+    User Updated...
+    </div>
+    </div>
+    '; 
+            }else {
+              $errors[] = "You can't upload files of this type";
+            }
+          }
+        }else {
+          $errors[] = "unknown error occurred!";
+        }
+
     }
 
     $id    = $_GET['id'];
@@ -68,9 +82,22 @@
       <div class="row">
    
   <h1 class="text-center mt-2">Record Update</h1>
-
-<form method='POST' enctype="multipart/form-data" class="text-center">
-    <p>Name:  <input type='text' name='name'  value='<?php echo $users[0]['username'];  ?>'></p>
+  <?php
+//! Hata mesajlarını göster
+if (!empty($errors)) {
+    foreach ($errors as $error) {
+        echo '
+        <div class="container">   
+    <div class="alert mt-3 text-center alert-danger" role="alert">
+    '.$error.'
+    </div>
+    </div>
+    '; 
+    }
+}
+?>
+<form method='POST'  enctype="multipart/form-data" class="text-center">
+    <p>Name:  <input type='text'  name='name'  value='<?php echo $users[0]['username'];  ?>'></p>
     <p>Phone Number: <input type='text' name='number' value='<?php echo$users[0]['phonenumber']; ?>'></p>
     <p>Image: <input type='file' name='image'></p> 
     <p><input type='submit' value='Update'></p>

@@ -13,7 +13,20 @@
       <div class="row">
   
   <h1 class="text-center mt-2">Record Added</h1>
-
+  <?php
+//! Hata mesajlarını göster
+if (!empty($errors)) {
+    foreach ($errors as $error) {
+        echo '
+        <div class="container">   
+    <div class="alert mt-3 text-center alert-danger" role="alert">
+    '.$error.'
+    </div>
+    </div>
+    '; 
+    }
+}
+?>
 <form method='POST' action="upload.php" enctype="multipart/form-data" class="text-center">
     <p>Name:  <input type='text' name='name' ></p>
     <p>Phone Number: <input type='text' name='number'></p>
