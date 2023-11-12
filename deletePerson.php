@@ -15,9 +15,9 @@ require_once('db.php');
   <body>
 <?php
 //? id ye göre kişiyi listeleme
-$sql = "SELECT * FROM users   WHERE userid = :id";
+$sql = "SELECT * FROM users   WHERE userid = :idUser";
 $SORGU = $DB->prepare($sql);
-$SORGU->bindParam(':id',$_GET['id']);
+$SORGU->bindParam(':idUser',$_GET['idUser']);
 $SORGU->execute();
 $users = $SORGU->fetchAll(PDO::FETCH_ASSOC);
 /* 
@@ -40,7 +40,7 @@ $users = $SORGU->fetchAll(PDO::FETCH_ASSOC);
         </div>
         <div class='modal-footer'>
           <button type='button' class='btn btn-secondary' data-bs-dismiss='modal'>Close</button>
-          <a href='personDelete.php?id={$users[0]['userid']}' class='btn btn-danger'>Delete </a>
+          <a href='personDelete.php?idUser={$users[0]['userid']}' class='btn btn-danger'>Delete </a>
         </div>
       </div>
     </div>

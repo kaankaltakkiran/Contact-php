@@ -2,10 +2,10 @@
 <?php
 //?Silme işlemi
 require_once('db.php');
-$id    = $_GET['id'];
-$sql = "DELETE FROM users WHERE userid = :id";
+$id=$_GET['idUser'];
+$sql = "DELETE FROM users WHERE userid = :idUser";
 $SORGU = $DB->prepare($sql);
-$SORGU->bindParam(':id', $id);
+$SORGU->bindParam(':idUser', $id);
  $SORGU->execute(); 
  echo '
                       <div class="container">  

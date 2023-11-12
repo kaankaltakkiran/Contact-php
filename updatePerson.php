@@ -5,7 +5,7 @@
      
         $name  = $_POST['name'];
         $number = $_POST['number'];
-        $id    = $_GET['id'];
+        $id= $_GET['idUser'];
 
         $img_name = $_FILES['image']['name'];
         $img_size = $_FILES['image']['size'];
@@ -29,12 +29,12 @@
               $img_upload_path = 'images/'.$new_img_name;
               move_uploaded_file($tmp_name, $img_upload_path);
       
-              $sql = "UPDATE users SET username = :name, phonenumber = :number,userimg='$new_img_name' WHERE userid = :id";
+              $sql = "UPDATE users SET username = :name, phonenumber = :number,userimg='$new_img_name' WHERE userid = :idUser";
               $SORGU = $DB->prepare($sql);
 
         $SORGU->bindParam(':name',  $name);
         $SORGU->bindParam(':number', $number);
-        $SORGU->bindParam(':id',    $id);
+        $SORGU->bindParam(':idUser',    $id);
 
         // die(date("H:i:s"));
         $SORGU->execute();
@@ -56,12 +56,12 @@
 
     }
 
-    $id    = $_GET['id'];
+    $id= $_GET['idUser'];
 
-    $sql = "SELECT * FROM users WHERE userid = :id";
+    $sql = "SELECT * FROM users WHERE userid = :idUser";
     $SORGU = $DB->prepare($sql);
     
-    $SORGU->bindParam(':id', $id);
+    $SORGU->bindParam(':idUser', $id);
     
     $SORGU->execute();
 
