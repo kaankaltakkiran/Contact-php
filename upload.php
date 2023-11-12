@@ -50,10 +50,16 @@ if (isset($_POST['name']) && isset($_FILES['image'])) {
 			}
 		}
 	}else {
-		$errors[] = "unknown error occurred!";
+	/* 	$errors[] = "unknown error occurred!"; */
+		$errors[] = "Image Not Selected";
 	}
 
 }
+?>
+<?php
+    $SORU = $DB->prepare("SELECT * FROM users");
+    $SORU->execute();
+    $users = $SORU->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!doctype html>
 <html lang="en">
@@ -79,16 +85,29 @@ if (!empty($errors)) {
     </div>
     '; 
     }
+		//!Kullanıcı ekleme işleminde hata varsa textboxtaki değerleri yazdır.
+		echo"
+		<form method='POST'  enctype='multipart/form-data' class='text-center'>
+    <p>Name:  <input type='text'  name='name'  value='{$users[0]['username']}'></p>
+    <p>Phone Number: <input type='text' name='number' value='{$users[0]['phonenumber']}'></p>
+    <p>Image: <input type='file' name='image'></p> 
+    <p><input type='submit' value='Add'></p>
+</form>
+		";
+}
+else{
+	//!Kullanıcı ekleme işleminde hata yoksa textboxtaki değerleri yazdırma.
+	echo"
+	<form method='POST'  enctype='multipart/form-data' class='text-center'>
+	<p>Name:  <input type='text'  name='name'</p>
+	<p>Phone Number: <input type='text' name='number'</p>
+	<p>Image: <input type='file' name='image'></p> 
+	<p><input type='submit' value='Add'></p>
+</form>
+	";
 }
 ?>
-<form method='POST'  enctype="multipart/form-data" class="text-center">
-    <p>Name:  <input type='text'  name='name'  value='<?php echo 	$name; ?>'></p>
-    <p>Phone Number: <input type='text' name='number' value='<?php echo $number; ?>'></p>
-    <p>Image: <input type='file' name='image'></p> 
-    <p><input type='submit' value='Update'></p>
-</form>
-
-<p class="text-center"><a href='index.php'>Back To list</a></p>
+<p class='text-center'><a href='index.php' class='btn btn-warning' >Listeye Dön</a></p>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
   </body>
 </html>
