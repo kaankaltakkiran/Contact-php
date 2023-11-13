@@ -56,7 +56,7 @@ $users = $SORGU->fetchAll(PDO::FETCH_ASSOC);
         <th scope="col">Image</th>
         <th scope="col">Name</th>
         <th scope="col">Phone Number</th>
-        <th scope="col">Delete</th> 
+        <th scope="col">Delete Person</th> 
       </tr>
     </thead>
     <tbody>

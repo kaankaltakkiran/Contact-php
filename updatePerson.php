@@ -1,3 +1,15 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+  <div class="container">
+<div class='row text-center justify-content-center  mt-3'>
+  <h1 class='alert alert-primary mt-3'>Record Update</h1>
 <?php
 
     require_once('db.php');
@@ -70,18 +82,6 @@
 
     // echo "<pre>"; print_r($users);
 ?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  </head>
-  <body>
-  <div class="container">
-<div class='row text-center justify-content-center  mt-3'>
-  <h1 class='alert alert-primary'>Record Update</h1>
   <?php
 //! Hata mesajlarını göster
 if (!empty($errors)) {
@@ -96,11 +96,31 @@ if (!empty($errors)) {
     }
 }
 ?>
-<form method='POST'  enctype="multipart/form-data" class="text-center">
-    <p>Name:  <input type='text'  name='name'  value='<?php echo $users[0]['username'];  ?>'></p>
-    <p>Phone Number: <input type='text' name='number' value='<?php echo$users[0]['phonenumber']; ?>'></p>
-    <p>Image: <input type='file' name='image'></p> 
-    <p><input type='submit' value='Update'></p>
+<form method='POST' enctype="multipart/form-data" class="text-center">
+  <div class="row text-center justify-content-center">
+  <div class="col-6">
+    <div class="form-floating mb-3">
+  <input  type='text' name='name'  class="form-control" value='<?php echo $users[0]['username'];  ?>'>
+  <label for="floatingInput">Name</label>
+</div>
+</div>
+</div>
+<div class="row text-center justify-content-center">
+  <div class="col-6">
+    <div class="form-floating mb-3">
+  <input  type='text' name='number' value='<?php echo$users[0]['phonenumber']; ?>' class="form-control">
+  <label for="floatingInput">Phone Number</label>
+</div>
+</div>
+</div>
+<div class="row text-center justify-content-center">
+  <div class="col-6">
+    <div class="form-floating mb-3">
+    <input type='file' name='image'>
+    <button type='submit' class="btn btn-success">Update Person </button>
+</div>
+</div>
+</div>
 </form>
 
 <p class='text-center'><a href='index.php' class='btn btn-warning' >Listeye Dön</a></p>

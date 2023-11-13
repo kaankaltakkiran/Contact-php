@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -26,16 +24,62 @@ if (!empty($errors)) {
     }
 }
 ?>
-<form method='POST' action="upload.php" enctype="multipart/form-data" class="text-center">
-    <p>Name:  <input type='text' name='name' ></p>
-    <p>Phone Number: <input type='text' name='number'></p>
-     <p>Image: <input type='file' name='image'></p> 
-    <p><input type='submit' value='Add'></p>
+<form method='POST' class="needs-validation" novalidate action="upload.php" enctype="multipart/form-data" class="text-center">
+  <div class="row text-center justify-content-center">
+  <div class="col-6">
+    <div class="form-floating mb-3">
+  <input  type='text' name='name'  class="form-control" required>
+  <label for="floatingInput">Name</label>
+  <div class="invalid-feedback">
+  Plase Write Name
+    </div>
+</div>
+</div>
+</div>
+<div class="row text-center justify-content-center">
+  <div class="col-6">
+    <div class="form-floating mb-3">
+  <input  type='text' name='number'  class="form-control" required>
+  <label for="floatingInput">Phone Number</label>
+  <div class="invalid-feedback">
+  Plase Phone Number
+    </div>
+</div>
+</div>
+</div>
+<div class="row text-center justify-content-center">
+  <div class="col-6">
+    <div class="form-floating mb-3">
+    <input type='file' name='image'>
+    <button type='submit' class="btn btn-info">Add Person </button>
+</div>
+</div>
+</div>
 </form>
-
 <p class='text-center'><a href='index.php' class='btn btn-warning' >Listeye Dön</a></p>
 </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+  </script>
   </body>
 </html>

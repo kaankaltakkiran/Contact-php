@@ -21,8 +21,8 @@ require 'db.php';
       <th scope="col">Image</th>
       <th scope="col">Name</th>
       <th scope="col">Phone Number</th>
-      <th scope="col">Update</th>
-      <th scope="col">Delete</th>
+      <th scope="col">Update Person</th>
+      <th scope="col">Delete Person</th>
     
     </tr>
   </thead>
@@ -41,8 +41,8 @@ require 'db.php';
       <td><img src='images/{$user['userimg']}' class='rounded-circle' width='100' height='100'></td>
       <td>{$user['username']}</td>
       <td>{$user['phonenumber']}</td>
-      <td><a href='updatePerson.php?idUser={$user['userid']}' class='btn btn-success btn-sm'>Update</a></td>
-      <td><a href='deletePerson.php?idUser={$user['userid']}' class='btn btn-danger btn-sm'>Delete </a></td>
+      <td><a href='updatePerson.php?idUser={$user['userid']}' class='btn btn-success btn-sm'>Update Person</a></td>
+      <td><a href='deletePerson.php?idUser={$user['userid']}' class='btn btn-danger btn-sm'>Delete Person</a></td>
     </tr>    
       ";
     }
