@@ -52,7 +52,7 @@ if (isset($_POST['name']) && isset($_FILES['image'])) {
 				$SORGU->execute();
 				echo '
         <div class="container">
-    <div class="alert mt-3 text-center alert-info " role="alert">
+    <div class="auto-close alert mt-3 text-center alert-info " role="alert">
     User Added...
     </div>
     </div>
@@ -80,7 +80,7 @@ if (!empty($errors)) {
     foreach ($errors as $error) {
         echo '
         <div class="container">   
-    <div class="alert mt-3 text-center alert-danger" role="alert">
+    <div class="auto-close alert mt-3 text-center alert-danger" role="alert">
     '.$error.'
     </div>
     </div>
@@ -143,5 +143,6 @@ if (!empty($errors)) {
   })
 })()
   </script>
+  <script src="autoCloseAlert.js"></script>
   </body>
 </html>
