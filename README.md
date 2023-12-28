@@ -17,5 +17,5 @@
 
       
 ## Site Resimleri
- https://github.com/kaankaltakkiran/php_video
+https://github.com/kaankaltakkiran/php_image
 
