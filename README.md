@@ -1,4 +1,4 @@
-﻿## Contact-php  
+﻿# Contact-php  
  
  ## Proje nasıl kullanılır?
 - [ ] Proje clone edilir.
@@ -7,7 +7,7 @@
 - [ ] Örnek resim yüklemek için gerekli olan resimler projede mevcutttur.
 - [X] Kullanıma hazır.
 
- ## Yapılan İyileştirmeler?
+ ### Yapılan İyileştirmeler?
 - [X] Frontend hataları giderildi.
 - [X] Resim yüklemede boyut sınırı,tür sınırı (sadece jpg,ve png yüklenebilir) getirildi.
 - [X] Resim seçmeden ekleme veya güncelleme kısmında hatalar var ise  hata mesajı çıkıyor .
@@ -16,6 +16,5 @@
 - [X] Açılan modal da kullancıya tekrardan sorulur. Örneğin; Kaan kişisini silmekten emin misiniz ? eğer silmek ister delete butonuna basar ve kullanıcı silindi mesajı alır ve anasayfaya gidebilir.
 
       
-## Site Resimleri
-https://github.com/kaankaltakkiran/php_image
-
+#### Site Resimleri
+https://github.com/kaankaltakkiran/php-proje-resimleri/tree/main/contact%20proje%20resimler
