@@ -17,4 +17,4 @@
 
       
 #### Site Resimleri
-https://github.com/kaankaltakkiran/php-proje-resimleri/tree/main/contact%20proje%20resimler
+https://github.com/kaankaltakkiran/php-proje-resimleri/tree/main/contact_proje_resimler
